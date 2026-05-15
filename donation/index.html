@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate - All Saints Church</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{
+
+    background-color: #f5f5f5;
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: center;
+
+    font-family: 'Cinzel', serif;
+}
+h1{
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            color: darkblue;
+            margin-top: 25px;
+            letter-spacing: 2px;
+        }
+
+   /* Logo */
+        .logo{
+            position: absolute;
+            top: 9px;
+            left: 6px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+/* Inputs */
+input,
+textarea{
+    width:70%;
+    padding:14px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    font-family:Cinzel, sans-serif;
+}
+
+textarea{
+    height:100px;
+    resize:none;
+}
+
+/* Button */
+button{
+    background:darkblue;
+    color:white;
+    border:none;
+    padding:14px 30px;
+    margin-top:15px;
+    border-radius:4px;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+    font-family:Cinzel, sans-serif;
+}
+
+button:hover{
+    background:#001f66;
+}
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    
+    width: 50%;
+    max-width: 350px;
+
+    background: white;
+    padding: 25px;
+    border-radius: 5px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    z-index: 1000;
+
+    transition: 0.3s ease;
+}
+
+/* SHOW POPUP */
+.popup.show{
+    transform: translate(-50%, -50%) scale(1);
+}
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:10%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:0.3s;
+}
+
+.overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+</style>
+</head>
+
+<body>
+<h1>All Saints Church</h1>
+   Akola | Estd:1872
+    <br><hr>
+      <!-- Logo -->
+        <img src="file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/Sample project - Acme/img/cni-logo.png" class="logo" alt="Church Logo"> 
+        
+
+<h2>Donation</h2>Home --> Donation<hr>
+<!-- Enter Donation Input -->
+<input type="number"
+id="amount"
+placeholder="Enter Donation Amount (Rs)"
+required><br>
+<!-- Deatails form -->
+Enter Your Details:
+   <!-- Form -->
+    <form id="donationForm">
+
+        
+
+        <input type="text"
+        placeholder="Enter First Name"
+        required>
+
+        <input type="tel"
+        placeholder="Enter Mobile Number"
+        required>
+
+        <input type="email"
+        placeholder="Enter Gmail Address"
+        required>
+
+        <input type="text"
+        placeholder="Enter City"
+        required>
+
+        <textarea
+        placeholder="Write your comment"></textarea>
+
+        
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+
+    <h3>Select Payment Method</h3>
+
+    <button onclick="openApp()">
+        Open GPay / PhonePe
+    </button>
+
+    <br><br>
+
+    <button onclick="showQR()">
+        Scan QR Code
+    </button>
+
+    <br><br>
+
+  
+</div>
+
+
+  
+    </form>
+</div>
+<button type="button"
+class="main-btn"
+onclick="openPopup()">
+Donate Now
+</button><br><br><hr>
+<section>
+    SBI Of All Saints Church Akola,<br> Maharashtra 444004,<br>India.<br>
+    After transaction is completed kindly call
+    +9922258365
+ <!-- QR SECTION -->
+<div id="qrcode">      
+   <img src="file:///storage/emulated/0/Android/data/com.teejay.trebedit/files/TrebEdit user files/Sample project - Acme/img/IMG_20260513_133502.jpg" alt="Payment Qr Code"></div>
+</section>
+<br><hr>
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- ABOUT -->
+        <div class="footer-box">
+            <h2>All Saints Church</h2>
+            <p>
+                A place of worship, prayer, and community.
+                We welcome everyone to grow in faith and love.
+            </p>
+        </div>
+
+        <!-- QUICK LINKS -->
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="asc.html">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-box">
+            <h3>Contact</h3>
+          <a href="https://www.google.com/maps/place/P253%2BGC2+The+All+Saints+Church+-+Akola+District,+Maharashtra,+India,+Railway+Station+Rd,+New+Radhakisan+Plots,+Akola,+Maharashtra+444001/@20.7087664,77.0035078,15z/data=!4m6!3m5!1s0x3bd731e463883653:0x568b651e5ba1a3c7!8m2!3d20.7087664!4d77.0035078!16s%2Fg%2F11c70d4gfb?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDUwNl8wIJvbDyoASAJQAQ%3D%3D"> <p>📍 P253+GC2 The All Saints Church - Akola District, Maharashtra, India, Railway Station Rd, New Radhakisan Plots, Akola, Maharashtra 444001</p></a>
+            <p>📞 +91 XXXXX XXXXX</p>
+            <p>✉️ church@email.com</p>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+        <p>© 2026 All Saints Church. All Rights Reserved.</p>
+            <p>Web Designed By <a href=" https://solomanwood.github.io">Soloman Wood</a> </p>
+    </div>
+
+</footer>
+<script>
+
+let upiLink = "";
+
+function openPopup(){
+
+    let amount = document.getElementById("amount").value;
+
+    if(amount == "" || amount <= 0){
+        alert("Please enter valid amount");
+        return;
+    }
+
+    upiLink =
+    "upi://pay?pa=church@upi&pn=All Saints Church&am="
+    + amount +
+    "&cu=INR";
+
+    document.getElementById("popup").classList.add("show");
+    document.getElementById("overlay").classList.add("show");
+}
+
+function closePopup(){
+    document.getElementById("popup").classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
+}
+
+function openApp(){
+    window.location.href = upiLink;
+}
+function showQR(){
+
+    closePopup();
+
+    document.getElementById("qrcode")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+  </html>
